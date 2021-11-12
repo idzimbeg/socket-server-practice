@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "engines": {
+    "node": "v15.11.0",
+    "npm": "7.6.0"
+  },
   "scripts": {
     "start": "node server.js"
   },
