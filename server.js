@@ -21,6 +21,10 @@ io.on("connection", (socket) => {
   });
 });
 
+server.get('/', (req, res) => {
+  res.redirect('/')
+})
+
 server.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
