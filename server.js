@@ -1,4 +1,4 @@
-const server = require("http").createServer(function(req,res) { res.sendDate('Hello')})
+const server = require("http").createServer(function(req,res) { res.send('Hello')})
 const io = require("socket.io")(server, {
   cors: {
     origin: "*",
