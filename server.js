@@ -31,7 +31,7 @@ const PORT = process.env.PORT || 4000;
 const NEW_CHAT_MESSAGE_EVENT = "newChatMessage";
 
 const server = express()
-.use((req, res) => res.send('Hello World'))
+.use('*',(req, res) => res.send('Hello World'))
 .listen(PORT, () => console.log(`Listening on ${PORT}`));
 
 const io = socketIO();
