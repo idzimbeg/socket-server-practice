@@ -5,8 +5,7 @@ const io = require("socket.io")(server, {
   },
 });
 
-
-const port = process.env.PORT || 4000;
+const PORT = process.env.PORT || 8080;
 const NEW_CHAT_MESSAGE_EVENT = "newChatMessage";
 
 io.on("connection", (socket) => {
@@ -21,10 +20,38 @@ io.on("connection", (socket) => {
   });
 });
 
-server.get('/', (req, res) => {
-  res.redirect('/')
-})
-
-server.listen(port, () => {
-  console.log(`Listening on port ${port}`);
+server.listen(PORT, () => {
+  console.log(`Listening on PORT ${PORT}`);
 });
+
+// server.get('/', function(req, res){
+//   req.send("Hello World");
+// });
+// const express = require('express');
+// const socketIO = require('socket.io');
+
+// const PORT = process.env.PORT || 4000;
+// const NEW_CHAT_MESSAGE_EVENT = "newChatMessage";
+
+// const server = express();
+// // // .use((req, res) => )
+// // .listen(PORT, () => console.log(`Listening on ${PORT}`));
+
+// const io = socketIO();
+
+// io.on("connection", (socket) => {
+//   const { roomId } = socket.handshake.query;
+//   socket.join(roomId);
+
+//   socket.on(NEW_CHAT_MESSAGE_EVENT, (data) => {
+//     io.in(roomId).emit(NEW_CHAT_MESSAGE_EVENT, data);
+//   });
+//   socket.on("disconnect", () => {
+//     socket.leave(roomId);
+//   });
+// });
+
+// server.listen(PORT, () => {
+//   console.log(`Listening on PORT ${PORT}`);
+// });
+
