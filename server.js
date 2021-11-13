@@ -6,7 +6,7 @@ const io = require("socket.io")(server, {
 });
 
 
-const PORT = process.env.PORT || 4000;
+const port = process.env.PORT || 4000;
 const NEW_CHAT_MESSAGE_EVENT = "newChatMessage";
 
 io.on("connection", (socket) => {
@@ -21,6 +21,6 @@ io.on("connection", (socket) => {
   });
 });
 
-server.listen(PORT, () => {
-  console.log(`Listening on port ${PORT}`);
+server.listen(port, () => {
+  console.log(`Listening on port ${port}`);
 });
