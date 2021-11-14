@@ -1,11 +1,11 @@
-const server = require("http").createServer(function(req,res) { res.send('Hello')})
+const server = require("http").createServer();
 const io = require("socket.io")(server, {
   cors: {
     origin: "*",
   },
 });
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 4000;
 const NEW_CHAT_MESSAGE_EVENT = "newChatMessage";
 
 io.on("connection", (socket) => {
@@ -24,26 +24,4 @@ server.listen(PORT, () => {
   console.log(`Listening on PORT ${PORT}`);
 });
 
-// const express = require('express');
-// const socketIO = require('socket.io');
 
-// const PORT = process.env.PORT || 4000;
-// const NEW_CHAT_MESSAGE_EVENT = "newChatMessage";
-
-// const server = express()
-// .use('*',(req, res) => res.send('Hello World'))
-// .listen(PORT, () => console.log(`Listening on ${PORT}`));
-
-// const io = socketIO();
-
-// io.on("connection", (socket) => {
-//   const { roomId } = socket.handshake.query;
-//   socket.join(roomId);
-
-//   socket.on(NEW_CHAT_MESSAGE_EVENT, (data) => {
-//     io.in(roomId).emit(NEW_CHAT_MESSAGE_EVENT, data);
-//   });
-//   socket.on("disconnect", () => {
-//     socket.leave(roomId);
-//   });
-// });
